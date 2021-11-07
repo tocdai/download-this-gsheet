@@ -18,6 +18,14 @@ chrome.tabs.onActivated.addListener(({ tabId, windowId }) => {
   });
 });
 
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (changeInfo.url) {
+    isGSheetDocumentURL(changeInfo.url)
+      ? enableExtension()
+      : disableExtension();
+  }
+});
+
 function isGSheetDocumentURL(url) {
   // Match if the url begin with https://docs.google.com/spreadsheets/d/
   const regex = /^https:\/\/docs.google.com\/spreadsheets\/d\//;
