@@ -1,6 +1,6 @@
 {
-  "name": "Getting Started Example",
-  "description": "Build an Extension!",
+  "name": "Download This Gsheet",
+  "description": "Download the current sheet your are working on with just one click!",
   "version": "0.1",
   "manifest_version": 3,
   "background": {
@@ -8,19 +8,19 @@
   },
   "permissions": ["tabs"],
   "action": {
-    "default_title": "Whatsupp",
+    "default_title": "Download This Gsheet Extension",
     "default_icon": {
-      "16": "/images/get_started16.png",
-      "32": "/images/get_started32.png",
-      "48": "/images/get_started48.png",
-      "128": "/images/get_started128.png"
+      "16": "/images/icon16.png",
+      "32": "/images/icon32.png",
+      "64": "/images/icon64.png",
+      "128": "/images/icon128.png"
     }
   },
   "icons": {
-    "16": "/images/get_started16.png",
-    "32": "/images/get_started32.png",
-    "48": "/images/get_started48.png",
-    "128": "/images/get_started128.png"
+    "16": "/images/icon16.png",
+    "32": "/images/icon32.png",
+    "64": "/images/icon64.png",
+    "128": "/images/icon128.png"
   },
   "options_page": "options.html"
 }
