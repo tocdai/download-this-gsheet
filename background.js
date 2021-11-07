@@ -1,32 +1,26 @@
+chrome.action.onClicked.addListener((tab) => {
+  const url = tab.url;
+  // if (!isGSheetDocumentURL(url)) {
+  //   return;
+  // }
+  downThisSheet(url);
+});
+
 /**
- * Wrap in an onInstalled callback in order to avoid unnecessary work
- * every time the background script is run
+ * Check and disable the extension respectively when user change Tab
  */
-chrome.runtime.onInstalled.addListener(() => {
-  chrome.action.onClicked.addListener((tab) => {
-    const url = tab.url;
-    // if (!isGSheetDocumentURL(url)) {
-    //   return;
-    // }
-    downThisSheet(url);
+chrome.tabs.onActivated.addListener(({ tabId, windowId }) => {
+  chrome.tabs.get(tabId).then((tab) => {
+    isGSheetDocumentURL(tab.url) ? enableExtension() : disableExtension();
   });
+});
 
-  /**
-   * Check and disable the extension respectively when user change Tab
-   */
-  chrome.tabs.onActivated.addListener(({ tabId, windowId }) => {
-    chrome.tabs.get(tabId).then((tab) => {
-      isGSheetDocumentURL(tab.url) ? enableExtension() : disableExtension();
-    });
-  });
-
-  chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    if (changeInfo.url) {
-      isGSheetDocumentURL(changeInfo.url)
-        ? enableExtension()
-        : disableExtension();
-    }
-  });
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (changeInfo.url) {
+    isGSheetDocumentURL(changeInfo.url)
+      ? enableExtension()
+      : disableExtension();
+  }
 });
 
 function isGSheetDocumentURL(url) {
