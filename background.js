@@ -26,8 +26,7 @@ function isGSheetDocumentURL(url) {
 
 function downThisSheet(url) {
   const downloadUrl = url.replace("/edit#gid=", "/export?format=xlsx&gid=");
-  chrome.tabs
-    .create({ url: downloadUrl, active: false });
+  chrome.tabs.create({ url: downloadUrl, active: false });
 }
 
 function disableExtension() {
