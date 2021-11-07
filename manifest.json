@@ -8,7 +8,7 @@
   },
   "permissions": ["tabs"],
   "action": {
-    "default_title": "Download This Gsheet Extension",
+    "default_title": "Download This Gsheet",
     "default_icon": {
       "16": "/images/icon16.png",
       "32": "/images/icon32.png",
