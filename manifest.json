@@ -1,12 +1,12 @@
 {
   "name": "Download This Gsheet",
   "description": "Download the current sheet your are working on with just one click!",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "storage"],
   "action": {
     "default_title": "Download This Gsheet",
     "default_icon": {
