@@ -3,6 +3,6 @@
 }
 
 .bmc-btn {
-    font-size: medium;
-    height: 55px;
+    font-size: medium !important;
+    height: 45px !important;
 }
