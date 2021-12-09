@@ -24,9 +24,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 /**
  * Set default format
  */
-chrome.storage.sync.set({ defaultDownloadFormat: "xlsx" }).then(() => {
-  console.log("set default value done");
-});
+chrome.storage.sync.set({ defaultDownloadFormat: "xlsx" });
 
 function isGSheetDocumentURL(url) {
   // Match if the url begin with https://docs.google.com/spreadsheets/d/
