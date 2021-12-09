@@ -1,9 +1,7 @@
 chrome.action.onClicked.addListener((tab) => {
-  const url = tab.url;
-  // if (!isGSheetDocumentURL(url)) {
-  //   return;
-  // }
-  downThisSheet(url);
+  chrome.storage.sync
+    .get(["defaultDownloadFormat"])
+    .then((result) => downThisSheet(tab.url, result.defaultDownloadFormat));
 });
 
 /**
@@ -23,14 +21,24 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   }
 });
 
+/**
+ * Set default format
+ */
+chrome.storage.sync.set({ defaultDownloadFormat: "xlsx" }).then(() => {
+  console.log("set default value done");
+});
+
 function isGSheetDocumentURL(url) {
   // Match if the url begin with https://docs.google.com/spreadsheets/d/
   const regex = /^https:\/\/docs.google.com\/spreadsheets\/d\//;
   return url.match(regex) !== null;
 }
 
-function downThisSheet(url) {
-  const downloadUrl = url.replace("/edit#gid=", "/export?format=xlsx&gid=");
+function downThisSheet(url, format = "xlsx") {
+  const downloadUrl = url.replace(
+    "/edit#gid=",
+    `/export?format=${format}&gid=`
+  );
   chrome.tabs.create({ url: downloadUrl, active: false });
 }
 

@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="button.css">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id="buttonDiv">
-    </div>
+    <h2>Customize your extension</h2>
+    
+    <h3>Choose default download format: 
+      <select class="default-download-format" name="default-download-format">
+        <option id="option-default-format-xlsx" value="xlsx">xlsx</option>
+        <option id="option-default-format-pdf" value="pdf">pdf</option>
+      </select>
+    </h3>
     <div>
-      <p>We'll add your favorite options soon!</p>
+      <i>We'll add your favorite options soon, just
+        <a href="https://chrome.google.com/webstore/detail/download-this-gsheet/ilpfikjnjieiinbnnbfabncjdjpgbfbm">let us know here</a>
+        , or <a href="mailto:phuhatruong@gmail.com">email to phuhatruong@gmail.com</a>
+      </i>
     </div>
   </body>
   <script src="options.js"></script>
