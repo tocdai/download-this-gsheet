@@ -8,4 +8,5 @@ The extension now [available on store](https://chrome.google.com/webstore/detail
 - One click to download the current sheet as xlsx
 ### v1.0.0
 - Support download as pdf
-- Allow config the default dowload format in the Options page
+- Allow config the default download format in the Options page
+- Add buymeacoffee button
