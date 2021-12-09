@@ -7,7 +7,6 @@ defaultDownloadFormatEl.addEventListener("change", (event) => {
 });
 
 chrome.storage.sync.get(["defaultDownloadFormat"], (result) => {
-  console.log(result.defaultDownloadFormat, "<<<<construct");
   document.querySelector(
     `#option-default-format-${result.defaultDownloadFormat}`
   ).selected = "selected";
