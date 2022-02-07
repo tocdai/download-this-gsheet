@@ -1,7 +1,10 @@
 chrome.action.onClicked.addListener((tab) => {
-  chrome.storage.sync
-    .get(["defaultDownloadFormat"])
-    .then((result) => downThisSheet(tab.url, result.defaultDownloadFormat));
+  chrome.storage.sync.get(["defaultDownloadFormat"]).then((result) => {
+    const downloadFormat = result.defaultDownloadFormat
+      ? result.defaultDownloadFormat
+      : "xlsx";
+    downThisSheet(tab.url, downloadFormat);
+  });
 });
 
 /**
@@ -20,11 +23,6 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
       : disableExtension();
   }
 });
-
-/**
- * Set default format
- */
-chrome.storage.sync.set({ defaultDownloadFormat: "xlsx" });
 
 function isGSheetDocumentURL(url) {
   // Match if the url begin with https://docs.google.com/spreadsheets/d/
