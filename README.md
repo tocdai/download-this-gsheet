@@ -10,7 +10,6 @@ The extension now [available on store](https://chrome.google.com/webstore/detail
 - Support download as pdf
 - Allow config the default download format in the Options page
 - Add buymeacoffee button
-- 
 ### v1.0.1
 - Support download as csv
 - Fix bug of life cycle of the default download format
