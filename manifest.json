@@ -1,7 +1,7 @@
 {
   "name": "Download This Gsheet",
   "description": "Download the current sheet your are working on with just one click!",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
