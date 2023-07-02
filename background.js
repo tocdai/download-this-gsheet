@@ -62,10 +62,10 @@ function recordDownload() {
       lang: navigator.language,
       userAgent: navigator.userAgent,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      error: false,
     })
     .catch((error) => {
-      db.collection("errors").add({
-        func: "recordDownload",
+      db.collection("downloads").add({
         error: error,
       });
     });
