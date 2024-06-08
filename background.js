@@ -73,7 +73,7 @@ function recordDownload() {
 
 function downThisSheet(url, format = "xlsx") {
   const downloadUrl = url.replace(
-    "/edit#gid=",
+    /\/edit[?|#]gid=/g,
     `/export?format=${format}&gid=`
   );
   chrome.tabs.create({ url: downloadUrl, active: false });

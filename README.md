@@ -15,3 +15,5 @@ The extension now [available on store](https://chrome.google.com/webstore/detail
 - Fix bug of life cycle of the default download format
 ### v1.1.1
 - Count number of downloads using Firebase
+### v1.2.1
+- Enhance url matching to support more Google Sheets urls
